@@ -12,9 +12,11 @@ local rewardEvent = game.ReplicatedStorage.RewardEBux -- Assuming a RemoteEvent 
 local DataStoreService = game:GetService("DataStoreService")
 local storedEBux = DataStoreService:GetDataStore("EBux")
 
-rewardEvent.OnServerEvent:Connect(function(amount, player)
-    local playerKey = "player"..player.UserId
-    player.leaderstats.EBux.Value = (player.leaderstats.EBux.Value + amount)
-    storedEBux:SetAsync(playerKey, player.leaderstats.EBux.Value)
-    print("Successfully rewarded "..playerKey..".")
+rewardEvent.OnServerEvent:Connect(function(amount, player, key)
+    if key == "hidden_for_security_reasons" then
+        local playerKey = "player"..player.UserId
+        player.leaderstats.EBux.Value = (player.leaderstats.EBux.Value + amount)
+        storedEBux:SetAsync(playerKey, player.leaderstats.EBux.Value)
+        print("Successfully rewarded "..playerKey..".")
+    end
 end)
