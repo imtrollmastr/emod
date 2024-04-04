@@ -24,6 +24,8 @@ game.Players.PlayerAdded:Connect(function(plr)
     local playerKey = "player"..plr.UserId
     local storedValueForPlayer = storedEBux:GetAsync(playerKey)
     EBux.Value = storedValueForPlayer
+    
+    print("Successfully transferred stored data to 'leaderstats' for "..playerKey..".")
 end)
 
 while true do
